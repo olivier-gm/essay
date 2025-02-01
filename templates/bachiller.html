@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="static\css\header2.css">
+  <link rel="stylesheet" href="static\css\menu_body2.css">
+  <link rel="icon" href="logos/logico_black.png" type="image/x-icon">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+
+
+  <script defer src="static\js\write.js"></script>
+  <script defer src="static\js\funciones_menu.js"></script>
+
+  <title>Gullieth</title>
+</head>
+
+<body class="entrada_body">
+
+  <header class="header">
+    <div class="bottom-bar">
+      <div class="bottom-bar__content">
+        <a href="#" class="logo">
+          <img class="logo__img" src="static\img\logo.png" alt="logo">
+
+        </a>
+    
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a class="nav__link ai" href="#">Gullieth AI <i class='bx bx-shape-triangle larger-icon' style="color: rgb(210, 184, 14);"></i></a>
+            </li>
+          
+          
+          </ul>
+        </nav>
+  
+        <div class="hamburger">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section>
+    <div class="columnas_contenedor">
+
+
+          <form id="dynamicForm" action="/process_form" method="POST">
+        <!-- Universidad con autocompletar -->
+        <input type="text" list="universidades" placeholder="Universidad" name="u" id="universidad" maxlength="80" >
+        <datalist id="universidades"></datalist>
+        <input type="text" placeholder="Área" name="area" id="area" maxlength="40" >
+        <input type="text" placeholder="Carrera" name="carrera" id="carrera" maxlength="40" >
+        <input type="text" placeholder="Docente" name="teacher" id="docente" >
+        <input type="text" placeholder="Asignatura" name="asignatura" id="asignatura" >
+        <input type="text" placeholder="Seccion" name="seccion" id="seccion" >
+        <div id="professorContainer"></div>
+        
+        <input type="text" placeholder="Período" name="periodo" id="periodo" >
+        <input type="text" placeholder="Academico" name="academico" id="academico" >
+        <input type="text" placeholder="Ciudad" name="city" id="ciudad" >
+        <input type="date" placeholder="Fecha" name="date" id="fecha" >        
+        <label for="studentCount" style="color: rgb(255, 255, 255);">Cantidad de estudiantes:</label>
+        <select name='gblock-template-canvas-integrantes' id="studentCount">
+            <option value=''>Select...</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value='7'>7</option>
+            <option value='8'>8</option>
+        </select>
+        
+        <div id="studentContainer"></div>
+        <input type="text" placeholder="Título del trabajo" name="title" id="titulo" maxlength="300" >
+        
+        <div id="subtitlesContainer" style="display:none;">
+          <label for="subtitlesCount" style="color: rgb(255, 255, 255);">Temas especificos:</label>
+          <select id="subtitlesCount" onchange="generateSubtitles()">
+              <option value="">Seleccione...</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+          </select>
+          <div id="subtitleInputs"></div> <!-- Aquí se generarán los inputs -->
+      </div>
+        
+       
+    <!-- Global Mode Selector for all inputs -->
+    <div>
+      <label style="color: rgb(255, 255, 255);">Global Mode:</label>
+      <div class="button-group">
+          <input type="radio" id="mode-standard" name="global-mode" value="standard" onchange="toggleGlobalMode('standard')" checked>
+          <label for="mode-standard">Manual</label>
+
+          <input type="radio" id="mode-ia" name="global-mode" value="ia" onchange="toggleGlobalMode('ia')">
+          <label for="mode-ia">IA</label>
+      </div>
+  </div>
+
+
+
+  <!-- Contenido -->
+  <div id="contenido-wrapper">
+      <label for="contenido" style="color: rgb(255, 255, 255);">Contenido:</label>
+      <input type="text" placeholder="Contenido" name="body" id="contenido" >
+      <button type="button" id="contenido-toggle" onclick="toggleAIUsage('contenido')"style="font-weight: bold; font-size: 20px;">-</button>
+  </div>
+  <!-- Introducción -->
+  <div id="intro-wrapper">
+    <label for="introduccion" style="color: rgb(255, 255, 255);">Introducción:</label>
+    <input type="text" placeholder="Introducción" name="introduccion" id="introduccion" >
+    <button type="button" id="introduccion-toggle" onclick="toggleAIUsage('introduccion')"style="font-weight: bold; font-size: 20px;">-</button>
+</div>
+  <!-- Conclusión -->
+  <div id="conclusion-wrapper">
+      <label for="conclusion" style="color: rgb(255, 255, 255);">Conclusión:</label>
+      <input type="text" placeholder="Conclusión" name="conclusion" id="conclusion" >
+      <button type="button" id="conclusion-toggle" onclick="toggleAIUsage('conclusion')"style="font-weight: bold; font-size: 20px;">-</button>
+  </div>
+
+        <button type="submit" id="submitButton">Generar</button>
+
+    </form>
+
+      <div class="Raiz_t">
+        <div class="trabajo">
+          <div class="edu_info">
+          <h4 class="r">REPUBLICA BOLIVARIANA DE VENEZUELA</h4>
+          <h4 class="m">MINISTERIO DE EL PODER POPULAR PARA LA EDUCACION UNIVERSITARIA</h4>
+          <h4 id="universidadDisplay">Universidad</h4>
+          <h4 id="areaDisplay">Área</h4>
+          <h4 id="carreraDisplay">Carrera</h4>
+          <h1 class="titulo">TITULO</h1>
+        </div>
+  
+          
+          <div class="pinfosec">
+            <div class="primera_sec">
+            <H3>Docente:
+            <p id="docenteDisplay"></p></H3>
+            <H3>Asignatura:
+            <p id="asignaturaDisplay"></p></H3>
+            <h3>Periodo:
+            <p id="periodoDisplay"></p></h3>
+          </div>
+          <div class="ciudad_f">
+            <br>
+            <br>
+            <br>
+            <br>
+            <p id="ciudadDisplay"></p>
+            <p id="fechaDisplay"></p>
+        </div>
+        <div class="categoria_al">
+          <ul>
+            <H3>Alumno:</H3>
+            <ul  class="texto"  id="alumnoList"></ul>
+          </ul>
+          <ul>
+            <h3>&nbsp</h3>
+            <ul class="texto"  id="ciList"></ul>
+          </ul>
+  
+        </div>
+          </div>
+  
+  
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+ 
+  
+</body>
+
+<script>
+
+function generateSubtitles() {
+    const subtitleCount = document.getElementById('subtitlesCount').value;
+    const subtitleInputsContainer = document.getElementById('subtitleInputs');
+    
+    // Limpiar inputs existentes
+    subtitleInputsContainer.innerHTML = '';
+
+    // Generar nuevos inputs
+    for (let i = 1; i <= subtitleCount; i++) {
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.name = `subtitle_${i}`;
+        input.placeholder = `Subtítulo ${i}`;
+        input.maxLength = '300';
+        subtitleInputsContainer.appendChild(input);
+    }
+}
+
+  let aiStatus = {
+      introduccion: false,
+      contenido: false,
+      conclusion: false
+  };
+  
+  function toggleGlobalMode(mode) {
+      const inputWrappers = ['intro-wrapper', 'contenido-wrapper', 'conclusion-wrapper'];
+  
+      inputWrappers.forEach(function(wrapperId) {
+          const wrapper = document.getElementById(wrapperId);
+          const inputField = wrapper.querySelector('input');
+          const toggleButton = wrapper.querySelector('button'); // Get the related button
+
+
+
+          if (mode === 'standard') {
+              inputField.style.display = '';  // Show all input fields
+              toggleButton.textContent = '-'; // Default to "✘"
+              document.getElementById('subtitlesContainer').style.display = 'none'; // Ocultar subtítulos
+          } else if (mode === 'ia' && inputField.id === 'contenido') {
+              inputField.style.display = 'none';  // Hide input fields for IA mode
+              toggleButton.textContent = '✔';     // Default to "✘"
+          } else if (mode === 'ia') {
+              inputField.style.display = 'none';  // Hide input fields for IA mode
+              toggleButton.textContent = '✘';     // Default to "✘"
+              document.getElementById('subtitlesContainer').style.display = 'block'; // Mostrar subtítulos
+          }
+      });
+  }
+  
+  function toggleAIUsage(inputId) {
+      
+      const toggleButton = document.getElementById(inputId + '-toggle');
+      const inputField = document.getElementById(inputId);
+  
+  
+      // Toggle between "✔" and "✘"
+      if (toggleButton.textContent === '✘') {
+          toggleButton.textContent = '✔'; // Set to "✔"
+          aiStatus[inputId] = true;
+      } else if (toggleButton.textContent === '-') {
+          toggleButton.textContent = '+'; // Set to "+"
+          inputField.style.display = 'none';  // Hide the input field when checked
+
+      }
+      
+      else if (toggleButton.textContent === '✔') {
+
+            if (inputId==="contenido"){
+              return;
+            }
+          
+          toggleButton.textContent = '✘'; // Set to "✘"
+          inputField.style.display = 'none';  // Show the input field when unchecked
+          aiStatus[inputId] = false;
+      }
+      else{
+        toggleButton.textContent = '-'; // Set to "-"
+        inputField.style.display = '';  // Hide the input field when checked
+      }
+  }
+  </script>
+
+<script>
+  flatpickr("#fecha", {
+      dateFormat: "d/m/Y", // Formato dd/mm/yyyy
+      onChange: function(selectedDates, dateStr, instance) {
+          document.getElementById('fechaDisplay').textContent = dateStr; // Mostrar la fecha seleccionada
+      }
+  });
+  </script>
+<script> 
+  // Mapa de equivalencias entre vocales con y sin acento
+  const acentoMap = {
+    'a': '[aá]',
+    'e': '[eé]',
+    'i': '[ií]',
+    'o': '[oó]',
+    'u': '[uú]'
+};
+  // Función para cargar el archivo .txt con los nombres de las imágenes (universidades) y poblar el datalist
+  function loadUniversities() {
+      fetch('static/txt/lista_imagenes.txt') // Cambia esto a la ruta de tu archivo
+          .then(response => response.text())
+          .then(data => {
+              const universidades = data.split('\n').map(item => item.trim()); // Dividir por líneas
+              const datalist = document.getElementById('universidades');
+  
+              // Limpiar el datalist antes de agregar nuevas opciones
+              datalist.innerHTML = '';
+  
+              // Crear opciones dinámicamente para el datalist
+              universidades.forEach(universidad => {
+                  const option = document.createElement('option');
+                  option.value = universidad;
+                  datalist.appendChild(option);
+              });
+          })
+          .catch(error => {
+              console.error('Error cargando el archivo:', error);
+          });
+  }
+  
+  // Llamar a la función para cargar las universidades cuando la página se carga
+  document.addEventListener('DOMContentLoaded', loadUniversities);
+  </script>
+
+</html>

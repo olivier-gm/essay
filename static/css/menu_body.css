@@ -1,0 +1,493 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+/* PARTE DE TRABAJO */
+.columnas_contenedor {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  width: 100%; 
+  padding: 20px;
+  text-align: left;
+  gap: 0.5%;
+}
+#formulario{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  background: whitesmoke;
+  border-radius: 7px 0px 0px 7px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.444);
+  overflow: auto;
+  padding: 2%;
+  color: darkblue;
+}
+#formulario div {
+  gap: 1%;
+}
+#campos_principales{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3%;
+}
+#periodoContainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3%;
+}
+#segmentos{
+  display: flex;
+  justify-content: space-around;
+  gap: 1%;
+}
+.Raiz_t{
+  height: 100%;
+  max-width: 100%;
+}
+#modo{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-evenly;
+}
+.selecmodo{
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  height: auto;
+  padding: 3%;
+  align-items: center;
+}
+
+.columnas_contenedor > * {
+.trabajo {
+  background: whitesmoke;
+  max-width: 100%; 
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0px 7px 7px 0px;
+  font-size: small;
+  justify-content: space-around; 
+  min-width: 50%;
+  padding: 15px;
+}
+.edu_info {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: inherit;
+  width: 100%;
+  color: rgb(44, 43, 43);
+  top: -25px
+}
+.edu_info .r, .m{
+  color: black;
+  font-size: inherit;
+
+}
+.edu_info .titulo{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  position: relative;
+  top: 100px;
+  color: rgb(0, 0, 0);
+  font-size: 1.5em;
+}
+.edu_info h4 {
+  text-align: center;
+  font-size: inherit;
+}
+.edu_info h1{
+color: rgb(165, 31, 31);
+font-size: inherit;
+}
+.pinfosec {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  font-size: inherit;
+  width: 99.9%;
+  margin-left: 6.2vw;
+  top: 40px;
+}
+.pinfosec p, h3{
+  font-size: inherit;
+}
+.primera_sec{ 
+  width: 40%;
+}
+.categoria_al{
+  width: 40%;
+}
+.ciudad_f{
+  width: 100%;
+}
+.ciudad_f p{
+  text-align: center;
+}
+
+#alumnos-colums{
+  display: grid;
+  grid-template-columns: auto 1fr; 
+}
+.categoria_al #alumnos-colums ul {
+  list-style: none; 
+  text-align: start;
+  height: 100%;
+  width: 100%;
+}
+
+.categoria_al #alumnos-colums ul li{
+ font-size: inherit;
+ display: block;
+ text-align: left;
+ max-width: 25%;
+}
+input, select, button {
+  display: block;
+  margin-bottom: 10px;
+  background: lightblue;
+}
+input::placeholder{
+  text-align: left;
+}
+form input {
+  width: 100%;
+  border-radius: 4px;
+  border: none;
+  height: 30px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.444); 
+  transition: transform 0.6s ease, box-shadow 0.6s ease; 
+  outline: none; 
+}
+form input:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.444); 
+}
+form input:focus {
+  outline: none; 
+}
+button {
+    width: 40px;
+    height: 30px;
+    text-align: center;
+    border-radius: 4px;
+}
+#boton-enviar{
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
+#submitButton{
+  width: 50%;
+  height: auto;
+  text-align: center;
+  background-color: #6a4c93;
+  color: white;
+  border: none;
+  transition: transform 0.3s ease , background-color 0.3s;
+}
+#submitButton:hover {
+  transform: scale(1.02); 
+  background-color: #070971;
+}
+.student-row {
+    display: flex;
+    gap: 10px; 
+    margin-bottom: 1px;
+}
+select {
+  width: 100%;
+  height: 30px; 
+  border-radius: 4px; 
+  border: 1px solid #ccc; 
+  color: #333; 
+  padding: 5px 10px;
+  font-size: 14px; 
+  text-align: center; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+  transition: transform 0.6s ease, box-shadow 0.6s ease; 
+  outline: none; 
+  -webkit-appearance: none; 
+  -moz-appearance: none; 
+  appearance: none; 
+
+select:hover {
+  transform: scale(1.03); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+}
+
+select:focus {
+  border-color: #6a4c93; 
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); 
+  outline: none;
+}
+select::-webkit-scrollbar {
+  width: 0; 
+}
+select::-webkit-dropdown-indicator {
+  display: none; 
+}
+
+.texto{
+  font-size: 1px;
+  margin-right: 10px;
+
+}
+#alumnoList{
+  white-space: nowrap; 
+}
+#ciList{
+  white-space: nowrap; 
+}
+}}
+/* Basic styling for button group */
+.button-group {
+    display: flex;
+    justify-content: space-around;
+}
+.button-group input[type="radio"] {
+    display: none;
+}
+.button-group label {
+    padding: 7px;
+    font-size: small;
+    border: 3px double #00f;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.button-group input[type="radio"]:checked + label {
+    background-color: #002a64;
+    color: rgb(0, 173, 225);
+    border-color: #00f;
+}
+button[type="button"] {
+  padding: 1px;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  cursor: pointer;  
+}
+/* General input styling */
+input[type="text"], input[type="date"], select {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  transition: border-color 0.3s ease;
+  color: #333;
+}
+input[type="text"]:focus, input[type="date"]:focus, select:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  transition: border-color 0.3s ease;
+  font-family: 'Open Sans', sans-serif;
+}
+select:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+#fontToggleBtn {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  text-align: center;
+  padding: 10px;
+  width:20%;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+#fontToggleBtn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+#fontToggleBtn:active {
+  background-color: #004085;
+  transform: scale(0.98);
+}
+#fontToggleBtn:focus {
+  outline: none;
+  box-shadow: 0 0 5px 2px rgba(0, 123, 255, 0.5);
+}
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(0, 0, 170);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  min-width: 20%;
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: #0056b3;
+}
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+/* Styling for labels */
+label {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 5px 0px;
+  font-family: 'Roboto', sans-serif;
+  text-align: left;
+}
+/* Container for subtitulos */
+#subtitlesContainer {
+  padding: 20px;
+  border-radius: 5px;
+  background: rgb(59, 171, 209);
+  animation: fondo 5s ease infinite;
+}
+#studentContainer input[type="text"] {
+  flex: 1 1 100px;
+}
+@keyframes fondo {
+    0% {background: rgb(59, 171, 209) ;} 
+    25% {background: rgb(103, 103, 255) ;}
+    50% {background: rgb(69, 69, 254) ;}
+    75% {background: rgb(103, 103, 255) ;}
+    100% {background: rgb(59, 171, 209) ;}
+}
+
+@media (max-width: 800px) {
+  .img {
+      height: 260px;
+      margin-right: 90px;
+    }
+    .caja_titulo {
+      margin-top: 50px;
+      text-align: center;
+      margin: 0 auto; 
+      margin-top: 20px;
+    }
+    .caja_titulo h1{
+      font-size: 34px;
+      letter-spacing: 3px;
+    }
+    .caja_titulo h3 {
+      font-size: 12px;
+    }
+    .boton-morado {
+      padding: 15px 40px;
+      margin-top: 30px;
+      transform: translateY(20px); 
+  }
+  body{
+    overflow: auto;
+  }
+  #campos_principales{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 7%;
+  }
+  #formulario{
+    padding: 6%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .columnas_contenedor{
+    display: flex;
+    height: 100% ;
+    flex-direction: column;
+    padding: 0;
+    gap: 3px;
+  }
+  .Raiz_t{
+    width: 100%;
+    height: 400px;
+  }
+  .columnas_contenedor > * {
+    .trabajo {
+      border-radius: 0;
+      width: 100%;
+      font-size: 0.6em;
+    }
+    #boton-enviar{
+      display: flex;
+      justify-content: center;
+    }
+  }
+  button{
+    min-width: 50%;
+  }
+  #segmentos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  #modo{
+    justify-content: left;
+  }
+  .selecmodo{
+    align-items: start;
+  }
+
+}
+
+/* modales */
+
+ /* Estilos para el modal (pop-up) */
+ .modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  margin: 5% 25%;
+  border: 1px solid #888;
+  border-radius: 7px;
+  width: 50%;
+}
+
+.modal textarea {
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+}
+
+/* Botón de cierre */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
